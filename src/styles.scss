@@ -1,0 +1,23 @@
+@use '@angular/material' as mat;
+@import '~@angular/material/theming';
+
+@include mat.core();
+$my-app-primary: mat.define-palette(mat.$indigo-palette);
+$my-accent: mat.define-palette(mat.$indigo-palette, A200, A100, A400);
+$my-theme: mat.define-light-theme((
+color: (
+primary: $my-app-primary,
+          accent: $my-accent
+)
+));
+@include mat.all-component-themes($my-theme);
+
+html, body {
+    height: 100%;
+}
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-radio-container {
+    margin-left: 7px;
+}
