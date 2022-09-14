@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "my-app": {
+    "human-code": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -13,15 +13,28 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "he": {
+            "translation": "src/locale/messages.he.json"
+          },
+          "it": {
+            "translation": "src/locale/messages.it.json"
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/my-app",
+            "outputPath": "dist/human-code",
+            "localize": ["he"],
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "sass",
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -62,6 +75,12 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "he": {
+              "localize": ["he"]
+            },
+            "it": {
+              "localize": ["it"]
             }
           },
           "defaultConfiguration": "production"
@@ -70,10 +89,16 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "my-app:build:production"
+              "browserTarget": "human-code:build:production"
             },
             "development": {
-              "browserTarget": "my-app:build:development"
+              "browserTarget": "human-code:build:development"
+            },
+            "he": {
+              "browserTarget": "human-code:build:development,he"
+            },
+            "it": {
+              "browserTarget": "human-code:build:development,it"
             }
           },
           "defaultConfiguration": "development"
@@ -81,7 +106,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "my-app:build"
+            "browserTarget": "human-code:build"
           }
         },
         "test": {
@@ -91,13 +116,14 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
+            "inlineStyleLanguage": "sass",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
-              "src/styles.css"
+              "node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+              "src/styles.sass"
             ],
             "scripts": []
           }
@@ -105,8 +131,7 @@
       }
     }
   },
-  "defaultProject": "my-app",
   "cli": {
-    "analytics": false
+    "analytics": "5ed1438c-6f44-421a-9eef-da3b757ca2a1"
   }
 }

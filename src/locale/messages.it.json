@@ -1,0 +1,22 @@
+{
+  "locale": "it",
+  "translations": {
+    "7214175931560801981": "Codice spirito guida",
+    "8637974098276032418": "Codice anima umana",
+    "8159495219728109286": "Chiave anima umana",
+    "5910354757564021070": "Evoluzione spirituale",
+    "5342432350421167093": "Nome",
+    "6152267990668881716": "Nomo ffo",
+    "2508361419712797789": "First name is mandatory",
+    "6515272943282524385": "Name should be at least 3 characters long",
+    "1660182039837144865": "Name must include hebrew or english characters",
+    "8682647014318735001": "Nome della mamma",
+    "3682487585390882284": "Insert mother name",
+    "6442920525978366911": "Mother name is mandatory",
+    "5804570904874086984": "Gender: ",
+    "8012344910054029733": "Uomo",
+    "5667840900782067941": "Donna",
+    "9022391343105663744": "Data di nascita",
+    "5005141257091855131": "Calculate"
+  }
+}

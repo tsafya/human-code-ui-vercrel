@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HairComponent } from './hair.component';
+import { CalculateCodeComponent } from './calculate-code.component';
 
-describe('HairComponent', () => {
-  let component: HairComponent;
-  let fixture: ComponentFixture<HairComponent>;
+describe('CalculateCodeComponent', () => {
+  let component: CalculateCodeComponent;
+  let fixture: ComponentFixture<CalculateCodeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HairComponent ]
+      declarations: [ CalculateCodeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HairComponent);
+    fixture = TestBed.createComponent(CalculateCodeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

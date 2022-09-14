@@ -1,0 +1,61 @@
+<div class="main-container">
+    <div *ngIf="showResult" class="p-5 d-flex flex-column align-items-center">
+        <div class="pb-2"><b i18n>Guide spirit</b></div>
+        <div>
+            <mat-icon *ngFor="let ch of result?.guide?.split('')"
+                      [svgIcon]="ch" class="code-sign"></mat-icon>
+        </div>
+        <div class="p-2"><b i18n>Spiritual code</b></div>
+        <div>
+            <mat-icon *ngFor="let ch of result?.spiritual?.split('')"
+                      [svgIcon]="ch" class="code-sign"></mat-icon>
+        </div>
+        <div class="p-2"><b i18n>Human spirit code</b></div>
+        <div class="p-2">{{result?.human}}</div>
+        <div class="p-2"><b i18n>evoluzione</b></div>
+        <div>{{result?.evoluzione}}</div>
+    </div>
+
+    <div >
+        <form [formGroup]="person">
+            <p>
+                <mat-form-field appearance="standard" >
+                    <mat-label i18n>First name</mat-label>
+                    <input matInput placeholder="" [formControl]="nameInput">
+                    <mat-hint i18n>insert first name</mat-hint>
+                    <mat-error i18n *ngIf="nameInput.errors?.['required']">First name is mandatory</mat-error>
+                    <mat-error i18n *ngIf="nameInput.errors?.['minlength']">Name should be at least 3 characters long</mat-error>
+                    <mat-error i18n *ngIf="nameInput.errors?.['invalidHebrewCharacter']">Name must include hebrew or english characters</mat-error>
+                    <!--        <mat-error *ngIf="nameInput.errors?.['invalidHebrewCharacter']">{{nameInput.errors?.['invalidHebrewCharacter'].value}} שם חייב להכיל רק אותיות עיבריות</mat-error>-->
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="standard">
+                    <mat-label i18n>Mother name</mat-label>
+                    <input matInput placeholder="" [formControl]="motherNameInput">
+                    <mat-hint i18n>Insert mother name</mat-hint>
+                    <mat-error i18n *ngIf="nameInput.errors?.['required']">Mother name is mandatory</mat-error>
+                    <mat-error i18n *ngIf="nameInput.errors?.['minlength']">Name should be at least 3 characters long</mat-error>
+                    <mat-error i18n *ngIf="nameInput.errors?.['invalidHebrewCharacter']">Name must include hebrew or english characters</mat-error>
+                </mat-form-field>
+            </p>
+            <div class="my-4">
+                <mat-radio-group [formControl]="genderOption" class="gender-group d-flex flex-md-column">
+                    <label i18n class="ms-3 my-2">Gender: </label>
+                    <mat-radio-button i18n class="my-2" value="0">Male</mat-radio-button>
+                    <mat-radio-button i18n value="1">Female</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <p>
+                <mat-form-field appearance="fill">
+                    <mat-label i18n>Birth date</mat-label>
+                    <input matInput [matDatepicker]="picker" [formControl]="birthDate" [max]="maxSelectionDate">
+                    <mat-hint>DD/MM/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </p>
+            <p><button i18n mat-flat-button color="primary" (click)="calculateCode()">Calculate</button></p>
+        </form>
+    </div>
+</div>

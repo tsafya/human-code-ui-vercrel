@@ -1,0 +1,22 @@
+{
+  "locale": "en-US",
+  "translations": {
+    "7214175931560801981": "Guide spirit",
+    "8637974098276032418": "Spiritual code",
+    "8159495219728109286": "Human spirit code",
+    "5910354757564021070": "evoluzione",
+    "5342432350421167093": "First name",
+    "6152267990668881716": "insert first name",
+    "2508361419712797789": "First name is mandatory",
+    "6515272943282524385": "Name should be at least 3 characters long",
+    "1660182039837144865": "Name must include hebrew or english characters",
+    "8682647014318735001": "Mother name",
+    "3682487585390882284": "Insert mother name",
+    "6442920525978366911": "Mother name is mandatory",
+    "5804570904874086984": "Gender: ",
+    "8012344910054029733": "Male",
+    "5667840900782067941": "Female",
+    "9022391343105663744": "Birth date",
+    "5005141257091855131": "Calculate"
+  }
+}

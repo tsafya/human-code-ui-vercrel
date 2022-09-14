@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
-import {HairComponent} from "./hair/hair.component";
+import {CalculateCodeComponent} from "./calculate-code/calculate-code.component";
 
 const routes: Routes = [
-  { path: 'hair', component: HairComponent }
+  { path: 'calculate', component: CalculateCodeComponent }
 ]
 
 @NgModule({
