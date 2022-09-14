@@ -4,7 +4,8 @@ import {CalculateCodeComponent} from "./calculate-code/calculate-code.component"
 
 const routes: Routes = [
   { path: 'calculate', component: CalculateCodeComponent },
-  { path: '', redirectTo: '/calculate', pathMatch: 'full' }
+  { path: '**', component: CalculateCodeComponent },
+  // { path: '', redirectTo: '/calculate', pathMatch: 'full' }
 ]
 
 @NgModule({
