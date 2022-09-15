@@ -21,6 +21,8 @@ export class IconModule {
         .addSvgIcon('2', this.setPath(`${this.path}/triangle.svg`))
         .addSvgIcon('0', this.setPath(`${this.path}/circle.svg`))
         .addSvgIcon('1', this.setPath(`${this.path}/rectangle.svg`))
+        .addSvgIcon('italian', this.setPath(`${this.path}/italy.svg`))
+        .addSvgIcon('hebrew', this.setPath(`${this.path}/israel.svg`))
   }
   private setPath(url: string): SafeResourceUrl {
     return this.domSanitizer.bypassSecurityTrustResourceUrl(url);
