@@ -18,7 +18,7 @@ export interface codes {
 
 export class ApiService {
   protocol = 'https';
-  host = 'api-tsafya.vercel.app';
+  host = 'human-code-api.vercel.app';
   endpoint = `${this.protocol}://${this.host}`
 
   constructor(private http: HttpClient) {}
