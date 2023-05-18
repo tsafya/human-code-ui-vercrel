@@ -18,7 +18,7 @@ export class AuthInterceptor implements HttpInterceptor {
           next: (event) => {
             if (event instanceof HttpResponse) {
               if (event.status === 401) {
-                alert('Unauthorize')
+                alert('Unauthorize');
               }
             }
             return event;
