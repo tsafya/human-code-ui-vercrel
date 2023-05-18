@@ -1,42 +1,41 @@
 <div class="main-container">
-    <div *ngIf="showResult" class="p-5 d-flex flex-column align-items-center">
-        <div class="pb-2"><b i18n>Guide spirit</b></div>
-        <div>
-            <mat-icon *ngFor="let ch of result?.guide?.split('')"
-                      [svgIcon]="ch" class="code-sign"></mat-icon>
-        </div>
-        <div class="p-2"><b i18n>Spiritual code</b></div>
-        <div>
-            <mat-icon *ngFor="let ch of result?.spiritual?.split('')"
-                      [svgIcon]="ch" class="code-sign"></mat-icon>
-        </div>
-        <div class="p-2"><b i18n>Human spirit code</b></div>
-        <div class="p-2">{{result?.human}}</div>
-        <div class="p-2"><b i18n>evoluzione</b></div>
-        <div>{{result?.evoluzione}}</div>
-    </div>
-
-    <div >
+    <div>
         <form [formGroup]="person">
             <p>
-                <mat-form-field appearance="standard" >
+                <mat-form-field appearance="standard" class="w-100" >
                     <mat-label i18n>First name</mat-label>
-                    <input matInput placeholder="" [formControl]="nameInput">
+                    <input matInput id="name" placeholder="" [formControl]="nameInput" [matAutocomplete]="autoName"  (change)="nameChanges($event, nameInput, autoName)">
+                    <mat-autocomplete [panelWidth]="180" #autoName="matAutocomplete" (optionSelected)="onNameOptionSelected($event, 'name')">
+                        <mat-option *ngIf="isLoading" class="is-loading">Loading...</mat-option>
+                        <mat-option *ngFor="let item of filteredNames$ | async" [value]="item.name" [id]="item.code.toString()">
+                            <span><b>{{item.name}}</b></span>
+                        </mat-option>
+                    </mat-autocomplete>
+
                     <mat-hint i18n>insert first name</mat-hint>
                     <mat-error i18n *ngIf="nameInput.errors?.['required']">First name is mandatory</mat-error>
                     <mat-error i18n *ngIf="nameInput.errors?.['minlength']">Name should be at least 3 characters long</mat-error>
-                    <mat-error i18n *ngIf="nameInput.errors?.['invalidHebrewCharacter']">Name must include hebrew or english characters</mat-error>
+                    <mat-error i18n *ngIf="nameInput.errors?.['invalidTranslation']">Translation problems for name: {{nameInput.errors?.['invalidTranslation'].value}}, Please send email to ''</mat-error>
+<!--                    <mat-error i18n *ngIf="nameInput.errors?.['invalidHebrewCharacter']">Name must include hebrew or english characters</mat-error>-->
                     <!--        <mat-error *ngIf="nameInput.errors?.['invalidHebrewCharacter']">{{nameInput.errors?.['invalidHebrewCharacter'].value}} שם חייב להכיל רק אותיות עיבריות</mat-error>-->
                 </mat-form-field>
             </p>
             <p>
-                <mat-form-field appearance="standard">
+                <mat-form-field appearance="standard" class="w-100">
                     <mat-label i18n>Mother name</mat-label>
-                    <input matInput placeholder="" [formControl]="motherNameInput">
+                    <input matInput placeholder="" [formControl]="motherNameInput" [matAutocomplete]="autoMother" (change)="nameChanges($event, motherNameInput, autoMother)">
+                    <mat-autocomplete [panelWidth]="180" #autoMother="matAutocomplete" (optionSelected)="onNameOptionSelected($event, 'mother')">
+                        <mat-option *ngIf="isLoading" class="is-loading">Loading...</mat-option>
+                        <mat-option *ngFor="let item of filteredMotherNames$ | async" [value]="item.name" [id]="item.code.toString()">
+                            <span><b>{{item.name}}</b></span>
+                        </mat-option>
+                    </mat-autocomplete>
+
                     <mat-hint i18n>Insert mother name</mat-hint>
-                    <mat-error i18n *ngIf="nameInput.errors?.['required']">Mother name is mandatory</mat-error>
-                    <mat-error i18n *ngIf="nameInput.errors?.['minlength']">Name should be at least 3 characters long</mat-error>
-                    <mat-error i18n *ngIf="nameInput.errors?.['invalidHebrewCharacter']">Name must include hebrew or english characters</mat-error>
+                    <mat-error i18n *ngIf="motherNameInput.errors?.['required']">Mother name is mandatory</mat-error>
+                    <mat-error i18n *ngIf="motherNameInput.errors?.['minlength']">Name should be at least 3 characters long</mat-error>
+                    <mat-error i18n *ngIf="motherNameInput.errors?.['invalidTranslation']">Translation problems for name: {{motherNameInput.errors?.['invalidTranslation'].value}}, Please send email to ''</mat-error>
+<!--                    <mat-error i18n *ngIf="nameInput.errors?.['invalidHebrewCharacter']">Name must include hebrew or english characters</mat-error>-->
                 </mat-form-field>
             </p>
             <div class="my-4">
@@ -58,4 +57,21 @@
             <p><button i18n mat-flat-button color="primary" (click)="calculateCode()">Calculate</button></p>
         </form>
     </div>
+    <div *ngIf="showResult" class="p-5 d-flex flex-column align-items-center">
+        <div class="pb-2"><b i18n>Guide spirit</b></div>
+        <div>
+            <mat-icon *ngFor="let ch of result?.guide?.split('')"
+                      [svgIcon]="ch" class="code-sign"></mat-icon>
+        </div>
+        <div class="p-2"><b i18n>Spiritual code</b></div>
+        <div>
+            <mat-icon *ngFor="let ch of result?.spiritual?.split('')"
+                      [svgIcon]="ch" class="code-sign"></mat-icon>
+        </div>
+        <div class="p-2"><b i18n>Human spirit code</b></div>
+        <div class="p-2">{{result?.human}}</div>
+        <div class="p-2"><b i18n>evoluzione</b></div>
+        <div>{{result?.evoluzione}}</div>
+    </div>
+
 </div>

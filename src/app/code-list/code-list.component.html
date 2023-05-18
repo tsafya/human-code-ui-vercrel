@@ -1,0 +1,23 @@
+<div class="top-menu">
+    <div class="main-actions">
+        <div><mat-icon  class="action-button">add</mat-icon></div>
+        <div><mat-icon  class="action-button">delete</mat-icon></div>
+        <div><mat-icon  class="action-button">edit</mat-icon></div>
+    </div>
+    <div><mat-icon  class="action-button">save</mat-icon></div>
+</div>
+<ag-grid-angular
+        style="width: 100%; height: 100%"
+        class="ag-theme-alpine"
+        [columnDefs]="columnDefs"
+        [defaultColDef]="defaultColDef"
+        [rowData]="gridData"
+        [rowSelection]="'multiple'"
+        [animateRows]="true"
+        [editType]="editType"
+        [singleClickEdit]="true"
+        [pinnedBottomRowData]="pinnedBottomRowData"
+        (gridReady)="onGridReady($event)"
+        (rowClicked)="onRowClicked()"
+        (rowValueChanged)="onRowValueChanged($event)"
+></ag-grid-angular>

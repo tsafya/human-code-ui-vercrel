@@ -1,0 +1,15 @@
+.top-menu {
+  display: flex;
+  justify-content: space-between;
+  margin: -20px 10px 0 10px;
+}
+.main-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.action-button {
+  font-size: 30px;
+  width: 30px;
+  height: 30px;
+}

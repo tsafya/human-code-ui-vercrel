@@ -1,6 +1,9 @@
 @use '@angular/material' as mat;
 @import '~@angular/material/theming';
 
+@import 'ag-grid-community/styles/ag-grid.css';
+@import 'ag-grid-community/styles/ag-theme-alpine.css';
+
 @include mat.core();
 $human-code-primary: mat.define-palette(mat.$indigo-palette);
 $my-accent: mat.define-palette(mat.$indigo-palette, A200, A100, A400);

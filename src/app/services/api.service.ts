@@ -1,8 +1,20 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {AuthService} from "@auth0/auth0-angular";
 
 export interface response {
   codes: codes
+}
+
+export interface names {
+  name: string,
+  code: number
+}
+
+export interface nameCodes {
+  name: string,
+  code: number,
+  hebrew: string
 }
 
 export interface codes {
@@ -21,7 +33,7 @@ export class ApiService {
   host = 'human-code-api.vercel.app';
   endpoint = `${this.protocol}://${this.host}`
 
-  constructor(private http: HttpClient) {}
+  constructor(public auth: AuthService, private http: HttpClient) {}
 
   isHebrewCharacters(name: string) {
     return this.http.get(`https://human-code-api.herokuapp.com/is_hebrewChars/?name=%D7%A8%D7%97%D7%9C`);
@@ -32,6 +44,24 @@ export class ApiService {
       params: {details: details},
     };
     return this.http.get<response>(`${this.endpoint}/calculate/`, requestOptions);
+  }
+
+  getNameList(q: string) {
+    const requestOptions = {
+      params: {query: q},
+    };
+
+    return this.http.get<names[]>(`${this.endpoint}/name_list/`, requestOptions);
+  }
+  getNameCodeList() {
+    return this.http.get<nameCodes[]>(`${this.endpoint}/api/name_code_list/`, {headers: {'Access-Control-Allow-Origin': '*'}});
+  }
+  getNameCode(name: string) {
+    const requestOptions = {
+      params: {name: name},
+    };
+
+    return this.http.get(`${this.endpoint}/name_code/`, requestOptions);
   }
 }
 
