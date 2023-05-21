@@ -2,11 +2,19 @@
   "version": 2,
   "routes": [
     {
-      "src": "/he/(.*)",
+      "src": "/he/calculate",
       "dest": "/he/index.html"
     },
     {
-      "src": "/it/(.*)",
+      "src": "/he/code-list",
+      "dest": "/he/index.html"
+    },
+    {
+      "src": "/it/calculate",
+      "dest": "/it/index.html"
+    },
+    {
+      "src": "/it/code-list",
       "dest": "/it/index.html"
     }
   ]
