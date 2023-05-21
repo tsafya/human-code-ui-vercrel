@@ -7,8 +7,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "translate": "ng extract-i18n --format=json --output-path src/locale",
-    "deploy-dev": " ng build --localize --configuration development",
-    "deploy-prod": " ng build --localize --configuration production",
+    "deploy-dev": "ng build --localize --configuration development",
+    "deploy-prod": "ng build --localize --configuration production",
     "heroku-postbuild": "ng build --localize"
   },
   "dependencies": {
