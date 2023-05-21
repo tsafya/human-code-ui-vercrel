@@ -4,6 +4,10 @@
     {
       "src": "/calculate",
       "dest": "/he/index.html"
+    },
+    {
+      "src": "/code-list",
+      "dest": "/he/index.html"
     }
   ]
 }
