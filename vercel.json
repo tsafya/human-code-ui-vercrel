@@ -2,7 +2,7 @@
   "version": 2,
   "routes": [
     {
-      "src": "/he/(.*)",
+      "src": "/calculate",
       "dest": "/he/index.html"
     }
   ]
