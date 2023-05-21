@@ -2,11 +2,11 @@
   "version": 2,
   "routes": [
     {
-      "src": "/he/.*",
+      "src": "/he/(.*)",
       "dest": "/he/index.html"
     },
     {
-      "src": "/it/.*",
+      "src": "/it/(.*)",
       "dest": "/it/index.html"
     }
   ]
