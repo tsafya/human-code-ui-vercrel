@@ -2,12 +2,12 @@
   "version": 2,
   "routes": [
     {
-      "src": "/calculate",
+      "src": "/he/(.*)",
       "dest": "/he/index.html"
     },
     {
-      "src": "/code-list",
-      "dest": "/he/index.html"
+      "src": "/it/(.*)",
+      "dest": "/it/index.html"
     }
   ]
 }
