@@ -21,9 +21,7 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {NameCodesService} from "./services/name-codes.service";
 import { CodeListComponent } from './code-list/code-list.component';
 import {AgGridModule} from "ag-grid-angular";
-import {AuthInterceptor} from "./authentication/auth.interceptor";
 import {AuthHttpInterceptor, AuthModule} from '@auth0/auth0-angular';
-import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -56,17 +54,25 @@ import {environment} from "../environments/environment";
             authorizationParams: {
                 redirect_uri: window.location.origin,
                 audience: 'https://human-code/api',
+                scope: 'read:current_user',
             },
             // The AuthHttpInterceptor configuration
-            // httpInterceptor: {
-            //     allowedList: [
+            httpInterceptor: {
+                allowedList: [
             //         // Attach access tokens to any calls that start with '/api/'
-            //         {
-            //             uri: '/api/name_code_list',
-            //             allowAnonymous: true
-            //         }
-            //     ]
-            // }
+                    {
+                        uri: 'https://human-code-api.vercel.app/api/name_code_list/',
+                        tokenOptions: {
+                            authorizationParams: {
+                                // The attached token should target this audience
+                                audience: 'https://human-code/api',
+                                // The attached token should have these scopes
+                                scope: 'read:current_user'
+                            }
+                        }
+                    }
+                ]
+            }
         }),
     ],
   providers: [
