@@ -32,9 +32,16 @@ export class CodeListComponent implements OnInit {
   constructor(public auth: AuthService, private api: ApiService) { }
 
   ngOnInit(): void {
+    this.auth.isAuthenticated$.subscribe(authenticated => {
+      if (authenticated) {
+        this.getRowData();
+      } else {
+        this.auth.loginWithRedirect({appState: { target: '/admin/code-list' }});
+      }
+    })
     // if(this.auth.isAuthenticated$) {
     //   console.log(this.auth.isAuthenticated$)
-      this.getRowData();
+
     // }
   }
 

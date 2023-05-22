@@ -5,7 +5,9 @@ import {CodeListComponent} from "./code-list/code-list.component";
 
 const routes: Routes = [
   { path: 'calculate', component: CalculateCodeComponent },
-  { path: 'code-list', component: CodeListComponent },
+  { path: 'admin', children:[
+      { path: 'code-list', component: CodeListComponent }
+    ] },
   { path: '**', component: CalculateCodeComponent },
   // { path: '', redirectTo: '/calculate', pathMatch: 'full' }
 ]
