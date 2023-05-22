@@ -54,7 +54,7 @@ import {environment} from "../environments/environment";
             domain: 'dev-rornbffga432mrx1.us.auth0.com',
             clientId: 'MLEUl0hhQboeMmGcduUjhSzt0KOcPcEy',
             authorizationParams: {
-                redirect_uri: 'http://localhost:4200/code-list',
+                redirect_uri: window.location.origin,
                 audience: 'https://human-code/api',
             },
             // The AuthHttpInterceptor configuration
