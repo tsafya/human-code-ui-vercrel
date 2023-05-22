@@ -6,7 +6,7 @@
       "dest": "/he/index.html"
     },
     {
-      "src": "/he/code-list",
+      "src": "/he/admin/code-list",
       "dest": "/he/index.html"
     },
     {
@@ -14,7 +14,7 @@
       "dest": "/it/index.html"
     },
     {
-      "src": "/it/code-list",
+      "src": "/it/admin/code-list",
       "dest": "/it/index.html"
     }
   ]
