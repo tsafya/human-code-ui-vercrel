@@ -6,6 +6,8 @@
     </div>
     <div><mat-icon  class="action-button">save rec</mat-icon></div>
 </div>
+<button (click)="auth.loginWithRedirect()">Login</button>
+<!--<button (click)="auth.loginWithRedirect({appState: { target: '/calculate' }})">Login</button>-->
 <ag-grid-angular
         style="width: 100%; height: 100%"
         class="ag-theme-alpine"

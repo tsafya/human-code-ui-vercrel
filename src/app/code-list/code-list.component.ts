@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ColDef, GridApi, GridReadyEvent, RowValueChangedEvent} from "ag-grid-community";
 import {ApiService, nameCodes, names} from "../services/api.service";
 import {concatMap} from "rxjs";
+import {AuthService} from "@auth0/auth0-angular";
 
 @Component({
   selector: 'app-code-list',
@@ -28,10 +29,13 @@ export class CodeListComponent implements OnInit {
   public editType: 'fullRow' = 'fullRow';
   public pinnedBottomRowData: any[] = [{'name': 'Total: 23'}]
 
-  constructor(private api: ApiService) { }
+  constructor(public auth: AuthService, private api: ApiService) { }
 
   ngOnInit(): void {
-    this.getRowData()
+    // if(this.auth.isAuthenticated$) {
+    //   console.log(this.auth.isAuthenticated$)
+      this.getRowData();
+    // }
   }
 
   getRowData() {

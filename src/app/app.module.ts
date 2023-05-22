@@ -23,6 +23,7 @@ import { CodeListComponent } from './code-list/code-list.component';
 import {AgGridModule} from "ag-grid-angular";
 import {AuthInterceptor} from "./authentication/auth.interceptor";
 import {AuthHttpInterceptor, AuthModule} from '@auth0/auth0-angular';
+import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -49,22 +50,23 @@ import {AuthHttpInterceptor, AuthModule} from '@auth0/auth0-angular';
         MatAutocompleteModule,
         AgGridModule,
         AuthModule.forRoot({
+            // ...environment.auth
             domain: 'dev-rornbffga432mrx1.us.auth0.com',
-            clientId: 'O5919MoP378XIfyVcN28j88QL36t2deV',
+            clientId: 'MLEUl0hhQboeMmGcduUjhSzt0KOcPcEy',
             authorizationParams: {
+                redirect_uri: 'http://localhost:4200/code-list',
                 audience: 'https://human-code/api',
             },
             // The AuthHttpInterceptor configuration
-            httpInterceptor: {
-                allowedList: [
-                    // Attach access tokens to any calls to '/api' (exact match)
-                    '/api',
-
-                    // Attach access tokens to any calls that start with '/api/'
-                    '/api/*',
-                    '/code-list/*'
-                ]
-            }
+            // httpInterceptor: {
+            //     allowedList: [
+            //         // Attach access tokens to any calls that start with '/api/'
+            //         {
+            //             uri: '/api/name_code_list',
+            //             allowAnonymous: true
+            //         }
+            //     ]
+            // }
         }),
     ],
   providers: [

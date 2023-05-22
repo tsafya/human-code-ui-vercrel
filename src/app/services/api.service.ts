@@ -29,6 +29,8 @@ export interface codes {
 })
 
 export class ApiService {
+  // protocol = 'http';
+  // host = '127.0.0.1:5000';
   protocol = 'https';
   host = 'human-code-api.vercel.app';
   endpoint = `${this.protocol}://${this.host}`
