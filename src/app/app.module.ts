@@ -52,24 +52,20 @@ import {AuthHttpInterceptor, AuthModule} from '@auth0/auth0-angular';
             domain: 'dev-rornbffga432mrx1.us.auth0.com',
             clientId: 'MLEUl0hhQboeMmGcduUjhSzt0KOcPcEy',
             authorizationParams: {
-                redirect_uri: window.location.origin,
+                redirect_uri: window.location.origin + '/' + document.getElementsByTagName('html')[0]['lang'],
                 audience: 'https://human-code/api',
                 scope: 'read:current_user',
             },
             // The AuthHttpInterceptor configuration
             httpInterceptor: {
                 allowedList: [
-            //         // Attach access tokens to any calls that start with '/api/'
+                    // Attach access tokens to any calls that start with '/api/'
                     {
-                        uri: 'https://human-code-api.vercel.app/api/name_code_list/',
-                        tokenOptions: {
-                            authorizationParams: {
-                                // The attached token should target this audience
-                                audience: 'https://human-code/api',
-                                // The attached token should have these scopes
-                                scope: 'read:current_user'
-                            }
-                        }
+                        uri: 'https://human-code-api.vercel.app/api/*',
+                        // tokenOptions: {
+                        //     authorizationParams: {
+                        //     }
+                        // }
                     }
                 ]
             }

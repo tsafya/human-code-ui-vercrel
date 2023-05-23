@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, LOCALE_ID, OnInit} from '@angular/core';
 import {ColDef, GridApi, GridReadyEvent, RowValueChangedEvent} from "ag-grid-community";
 import {ApiService, nameCodes, names} from "../services/api.service";
 import {concatMap} from "rxjs";
@@ -29,20 +29,18 @@ export class CodeListComponent implements OnInit {
   public editType: 'fullRow' = 'fullRow';
   public pinnedBottomRowData: any[] = [{'name': 'Total: 23'}]
 
-  constructor(public auth: AuthService, private api: ApiService) { }
+  constructor(public auth: AuthService, private api: ApiService, @Inject(LOCALE_ID) public locale: string) { }
 
   ngOnInit(): void {
     this.auth.isAuthenticated$.subscribe(authenticated => {
       if (authenticated) {
         this.getRowData();
       } else {
+
         this.auth.loginWithRedirect({appState: { target: '/he/admin/code-list' }});
       }
     })
-    // if(this.auth.isAuthenticated$) {
-    //   console.log(this.auth.isAuthenticated$)
-
-    // }
+    console.log(this.locale)
   }
 
   getRowData() {
