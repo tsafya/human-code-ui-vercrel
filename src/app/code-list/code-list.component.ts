@@ -37,7 +37,8 @@ export class CodeListComponent implements OnInit {
         this.getRowData();
       } else {
 
-        this.auth.loginWithRedirect({appState: { target: '/he/admin/code-list' }});
+        this.auth.loginWithRedirect({appState: { target: '/admin/code-list' }});
+        // this.auth.loginWithRedirect({appState: { target: `/${this.locale}/admin/code-list` }});
       }
     })
     console.log(this.locale)
