@@ -36,7 +36,7 @@ export class CodeListComponent implements OnInit {
       if (authenticated) {
         this.getRowData();
       } else {
-        this.auth.loginWithRedirect({appState: { target: '/admin/code-list' }});
+        this.auth.loginWithRedirect({appState: { target: '/he/admin/code-list' }});
       }
     })
     // if(this.auth.isAuthenticated$) {
