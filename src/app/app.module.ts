@@ -52,7 +52,8 @@ import {AuthHttpInterceptor, AuthModule} from '@auth0/auth0-angular';
             domain: 'dev-rornbffga432mrx1.us.auth0.com',
             clientId: 'MLEUl0hhQboeMmGcduUjhSzt0KOcPcEy',
             authorizationParams: {
-                redirect_uri: window.location.origin + '/' + document.getElementsByTagName('html')[0]['lang'],
+                // redirect_uri: window.location.origin + '/' + document.getElementsByTagName('html')[0]['lang'],
+                redirect_uri: `${window.location.origin}/he`,
                 audience: 'https://human-code/api',
                 scope: 'read:current_user',
             },
