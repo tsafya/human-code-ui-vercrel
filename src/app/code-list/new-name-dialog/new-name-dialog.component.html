@@ -1,0 +1,30 @@
+<h2 mat-dialog-title i18n>Add new name code</h2>
+<mat-dialog-content class="mat-typography">
+    <mat-form-field cdkFocusInitial appearance="standard" class="w-100" >
+        <mat-label i18n>name</mat-label>
+        <input matInput placeholder="" [formControl]="nameInput">
+        <mat-hint i18n>insert name</mat-hint>
+<!--        <mat-error i18n *ngIf="nameInput.errors?.['required']">First name is mandatory</mat-error>-->
+<!--        <mat-error i18n *ngIf="nameInput.errors?.['minlength']">Name should be at least 3 characters long</mat-error>-->
+<!--        <mat-error i18n *ngIf="nameInput.errors?.['invalidTranslation']">Translation problems for name: {{nameInput.errors?.['invalidTranslation'].value}}, Please send email to ''</mat-error>-->
+    </mat-form-field>
+    <mat-form-field appearance="standard" class="w-100" >
+        <mat-label i18n>code</mat-label>
+        <input matInput type="number" placeholder="" [formControl]="codeInput">
+        <mat-hint i18n>insert code</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="standard" class="w-100" >
+        <mat-label i18n>Hebrew name</mat-label>
+        <input matInput placeholder="" [formControl]="hebrewNameInput">
+        <mat-hint i18n>insert hebrew name</mat-hint>
+        <!--        <mat-error i18n *ngIf="nameInput.errors?.['required']">First name is mandatory</mat-error>-->
+        <!--        <mat-error i18n *ngIf="nameInput.errors?.['minlength']">Name should be at least 3 characters long</mat-error>-->
+        <!--        <mat-error i18n *ngIf="nameInput.errors?.['invalidTranslation']">Translation problems for name: {{nameInput.errors?.['invalidTranslation'].value}}, Please send email to ''</mat-error>-->
+    </mat-form-field>
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onCloseDialog()" i18n>Cancel</button>
+    <button mat-button (click)="addNameCode()" cdkFocusInitial i18n>Add</button>
+</mat-dialog-actions>

@@ -1,7 +1,13 @@
 .top-menu {
   display: flex;
   justify-content: space-between;
-  margin: -20px 10px 0 10px;
+  height: 16px;
+  position: relative;
+  top: -20px;
+  .toolbar-button {
+    border: none;
+    background: none;
+  }
 }
 .main-actions {
   display: flex;

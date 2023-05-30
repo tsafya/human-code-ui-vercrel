@@ -22,12 +22,15 @@ import {NameCodesService} from "./services/name-codes.service";
 import { CodeListComponent } from './code-list/code-list.component';
 import {AgGridModule} from "ag-grid-angular";
 import {AuthHttpInterceptor, AuthModule} from '@auth0/auth0-angular';
+import {MatDialogModule} from "@angular/material/dialog";
+import { NewNameDialogComponent } from './code-list/new-name-dialog/new-name-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CalculateCodeComponent,
-    CodeListComponent
+    CodeListComponent,
+    NewNameDialogComponent
   ],
     imports: [
         BrowserModule,
@@ -44,6 +47,7 @@ import {AuthHttpInterceptor, AuthModule} from '@auth0/auth0-angular';
         MatInputModule,
         MatDatepickerModule,
         MatNativeDateModule,
+        MatDialogModule,
         ReactiveFormsModule,
         MatAutocompleteModule,
         AgGridModule,

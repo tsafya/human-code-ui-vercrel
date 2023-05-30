@@ -65,6 +65,32 @@ export class ApiService {
 
     return this.http.get(`${this.endpoint}/name_code/`, requestOptions);
   }
+  addNewNameCode(newRecord: nameCodes) {
+    const requestOptions = {
+      headers: {'Access-Control-Allow-Origin': '*'}
+    }
+    const newRecordParam = {new_record: newRecord}
+    return this.http.post(`${this.endpoint}/api/add_name_code/`, newRecordParam, requestOptions);
+  }
+  updateNameCode(oldRecord: nameCodes, updatedRecord: nameCodes) {
+    const body = {
+      query: oldRecord,
+      updated_fields: updatedRecord
+    }
+
+    const requestOptions = {
+      headers: {'Access-Control-Allow-Origin': '*'}
+    }
+    return this.http.put(`${this.endpoint}/api/update_name/`, body, requestOptions);
+  }
+  deleteNameCode(recordToDelete: nameCodes) {
+    const requestOptions = {
+      body: recordToDelete,
+      headers: {'Access-Control-Allow-Origin': '*'}
+    }
+    return this.http.delete(`${this.endpoint}/api/delete_name/`, requestOptions);
+  }
+
 }
 
 // https://api-tsafya.vercel.app/calculate/?details=%7B%22name%22:%22%D7%A6%D7%A4%D7%A8%D7%99%D7%A8%22,%22mother%22:%22%D7%A8%D7%97%D7%9C%22,%22gender%22:0,%22birth%22:%7B%22day%22:30,%22month%22:3,%22year%22:1972%7D%7D

@@ -1,10 +1,10 @@
 <div class="top-menu">
     <div class="main-actions">
-        <div><mat-icon  class="action-button">add</mat-icon></div>
-        <div><mat-icon  class="action-button">delete</mat-icon></div>
-        <div><mat-icon  class="action-button">edit</mat-icon></div>
+        <button class="toolbar-button" (click)="addNameDialog()"><mat-icon  class="action-button">add</mat-icon></button>
+        <button class="toolbar-button" (click)="deleteName()" [disabled]="!allowDelete"><mat-icon class="action-button">delete</mat-icon></button>
+        <button class="toolbar-button" (click)="refresh()"><mat-icon  class="action-button">refresh</mat-icon></button>
     </div>
-    <div><mat-icon  class="action-button">save rec</mat-icon></div>
+    <button class="toolbar-button"><mat-icon class="action-button">save rec</mat-icon></button>
 </div>
 <!--<button (click)="auth.loginWithRedirect({appState: { target: '/calculate' }})">Login</button>-->
 <ag-grid-angular
@@ -19,6 +19,6 @@
         [singleClickEdit]="true"
         [pinnedBottomRowData]="pinnedBottomRowData"
         (gridReady)="onGridReady($event)"
-        (rowClicked)="onRowClicked()"
+        (rowClicked)="onRowClicked($event)"
         (rowValueChanged)="onRowValueChanged($event)"
 ></ag-grid-angular>
