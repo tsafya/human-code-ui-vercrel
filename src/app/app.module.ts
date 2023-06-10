@@ -24,13 +24,17 @@ import {AgGridModule} from "ag-grid-angular";
 import {AuthHttpInterceptor, AuthModule} from '@auth0/auth0-angular';
 import {MatDialogModule} from "@angular/material/dialog";
 import { NewNameDialogComponent } from './code-list/new-name-dialog/new-name-dialog.component';
+import { MissingNamesComponent } from './admin/missing-names/missing-names.component';
+import { CalculateNameCodeDialogComponent } from './admin/missing-names/calculate-name-code-dialog/calculate-name-code-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CalculateCodeComponent,
     CodeListComponent,
-    NewNameDialogComponent
+    NewNameDialogComponent,
+    MissingNamesComponent,
+    CalculateNameCodeDialogComponent
   ],
     imports: [
         BrowserModule,

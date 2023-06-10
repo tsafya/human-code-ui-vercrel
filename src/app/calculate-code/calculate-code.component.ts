@@ -114,10 +114,15 @@ export class CalculateCodeComponent implements OnInit {
       // this.human.gender = Number(this.genderOption.value);
 
       const param = JSON.stringify(details);
+      this.isLoading = true;
       this.api.calculateCode(param)
           .subscribe(res => {
             this.result = res.codes;
             this.showResult = true;
+          },
+          () => {},
+          () => {
+            this.isLoading = false;
           })
     }
   }

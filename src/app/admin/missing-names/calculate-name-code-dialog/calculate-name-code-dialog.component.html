@@ -1,0 +1,18 @@
+<div mat-dialog-title i18n>Calculate code from name</div>
+<mat-dialog-content class="mat-typography">
+    <div class="d-flex">
+        <mat-form-field cdkFocusInitial appearance="standard" class="w-100" >
+            <mat-label i18n>name</mat-label>
+            <input matInput placeholder="" [formControl]="nameInput">
+        </mat-form-field>
+
+    </div>
+    <button mat-raised-button color="primary" (click)="calculate()" cdkFocusInitial i18n>Calculate</button>
+    <div class="d-flex fs-5 mt-5">
+        <div i18n class="ms-3">Code:</div>
+        <div [innerHTML]="calculatedCode">0</div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-raised-button color="basic" (click)="onCloseDialog()" i18n>Close</button>
+</mat-dialog-actions>

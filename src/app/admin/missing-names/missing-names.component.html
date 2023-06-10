@@ -1,0 +1,23 @@
+<div class="top-menu">
+    <div class="main-actions">
+        <button class="toolbar-button" (click)="addNameToNameCodes()" [disabled]="!allowDelete"><mat-icon class="action-button">check</mat-icon></button>
+        <button class="toolbar-button" (click)="deleteName()" [disabled]="!allowDelete"><mat-icon class="action-button">delete</mat-icon></button>
+        <button class="toolbar-button" (click)="refresh()"><mat-icon  class="action-button">refresh</mat-icon></button>
+    </div>
+    <button class="toolbar-button" (click)="calculateNameCode()"><mat-icon  class="action-button">functions</mat-icon></button>
+</div>
+<!--<button (click)="auth.loginWithRedirect({appState: {x target: '/calculate' }})">Login</button>-->
+<ag-grid-angular
+        style="width: 100%; height: 100%"
+        class="ag-theme-alpine"
+        [columnDefs]="columnDefs"
+        [defaultColDef]="defaultColDef"
+        [rowData]="gridData"
+        [rowSelection]="'single'"
+        [animateRows]="true"
+        [editType]="editType"
+        [pinnedBottomRowData]="pinnedBottomRowData"
+        (gridReady)="onGridReady($event)"
+        (rowClicked)="onRowClicked($event)"
+        (rowValueChanged)="onRowValueChanged($event)"
+></ag-grid-angular>
