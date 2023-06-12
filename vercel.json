@@ -1,8 +1,5 @@
 {
   "version": 2,
-  "redirects": [
-    {"source": "/he/", "destination": "/he/index.html"}
-  ],
   "routes": [
     { "handle": "filesystem" },
     { "src": "/.*", "dest": "/index.html" }
