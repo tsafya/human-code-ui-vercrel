@@ -12,7 +12,6 @@ const routes: Routes = [
       { path: 'missing-names', component: MissingNamesComponent, canActivate: [AuthGuard] }
     ] },
   { path: '**', component: CalculateCodeComponent },
-  // { path: '', redirectTo: '/calculate', pathMatch: 'full' }
 ]
 
 @NgModule({
