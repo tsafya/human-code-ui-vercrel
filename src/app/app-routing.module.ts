@@ -11,7 +11,7 @@ const routes: Routes = [
       { path: 'code-list', component: CodeListComponent, canActivate: [AuthGuard] },
       { path: 'missing-names', component: MissingNamesComponent, canActivate: [AuthGuard] }
     ] },
-  // { path: '**', component: CalculateCodeComponent },
+  { path: '**', component: CalculateCodeComponent },
 ]
 
 @NgModule({
