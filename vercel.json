@@ -10,6 +10,10 @@
       "dest": "/he/index.html"
     },
     {
+      "src": "/he/admin/missing-names",
+      "dest": "/he/index.html"
+    },
+    {
       "src": "/it/calculate",
       "dest": "/it/index.html"
     },
