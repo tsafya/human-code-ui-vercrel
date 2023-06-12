@@ -10,8 +10,7 @@ const routes: Routes = [
   { path: 'admin', canActivate: [AuthGuard], children:[
       { path: 'code-list', component: CodeListComponent, canActivate: [AuthGuard] },
       { path: 'missing-names', component: MissingNamesComponent, canActivate: [AuthGuard] }
-    ] },
-  { path: '**', component: CalculateCodeComponent },
+    ] }
 ]
 
 @NgModule({
