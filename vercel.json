@@ -1,25 +1,7 @@
 {
   "version": 2,
-  "routes": [
-    {
-      "src": "/he/calculate",
-      "dest": "/he/index.html"
-    },
-    {
-      "src": "/he/admin/code-list",
-      "dest": "/he/index.html"
-    },
-    {
-      "src": "/he/admin/missing-names",
-      "dest": "/he/index.html"
-    },
-    {
-      "src": "/it/calculate",
-      "dest": "/it/index.html"
-    },
-    {
-      "src": "/it/admin/code-list",
-      "dest": "/it/index.html"
-    }
-  ]
+  "redirects": [
+    {"source": "/he/", "destination": "/he/index.html"}
+  ],
+
 }
